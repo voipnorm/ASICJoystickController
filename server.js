@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 const gamePad = require('./gamePad2');
 const TPXapi = require('./endpoint2');
 const UsbDetection = require('./usb');
