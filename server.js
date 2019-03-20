@@ -3,8 +3,8 @@ const TPXapi = require('./endpoint2');
 const UsbDetection = require('./usb');
 
 var endpoint = {
-    username: 'admin',
-    password: 'Giantnorm012',
+    username: process.env.TPADMIN,
+    password: process.env.TPADMINPWD,
     ipAddress: "10.27.42.120",
 }
 
