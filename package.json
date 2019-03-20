@@ -1,0 +1,17 @@
+{
+  "name": "joystickusb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "events": "^3.0.0",
+    "jsxapi": "^4.2.0",
+    "node-hid": "^0.7.6",
+    "usb-detection": "^4.1.0"
+  }
+}
