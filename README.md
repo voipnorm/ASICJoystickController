@@ -1,18 +1,18 @@
-#ASIC_VideoEndpoint_Joystick
+# ASIC_VideoEndpoint_Joystick
 
 Joystick camera control for Cisco CE video devices used in Telehealth
 
-#Business/Technical Challenge
+# Business/Technical Challenge
 
 Local and far end camera control are very common features used in the healthcare industries with video endpoints such as the Webex Room Kit.This is used in telehealth cases where the patient is remote from the caregiver and the caregiver is trying to zoom in on the patient over the video call. Cisco video endpoints require the use of a touch 10 controller to perform this function. For a caregiver this can be difficult to operate. Adding the capability of a Joystick to operate camera control will not only simplify the user experience but enhance it by providing a more granular control of both near and far end cameras.
 
 Although there are solutions available today to do camera control using a joystick they are costly to provided and require complex network setups beyond that of the video endpoints themselves.
 
-#Proposed Solution
+# Proposed Solution
 
 Our solution encompass a low cost hardware joystick leveraging the video endpoint APIs removing the requirement to build a separate camera control network to add joystick capabilities. All camera control would be across call signaling between the Cisco video endpoints.
 
-#Cisco Products Technologies/ Services
+# Cisco Products Technologies/ Services
 
 Our solution will levegerage the following technologies
 
@@ -23,15 +23,15 @@ Our solution will levegerage the following technologies
     Raspberry PI
     Nodejs
 
-#Team Members
+# Team Members
 
     Steve Greenberg stgreenb@cisco.com - America's Partner Org
     Chris Norman christno@cisco.com - Enterprise
 
-#Solution Components
-#Usage
+# Solution Components
+# Usage
 
-#Installing and using this project
+# Installing and using this project
 There are a number of steps to installing and using this project successfully:
 
 1. Purchase parts
@@ -56,18 +56,18 @@ https://pm2.io/doc/en/runtime/guide/startup-hook/?utm_source=pm2&utm_medium=webs
 https://github.com/MadLittleMods/node-usb-detection
 
 
-#Documentation
+# Documentation
 
 Pointer to reference documentation for this project.
-#License
+# License
 
 Provided under Cisco Sample Code License, for details see LICENSE
 
-#Code of Conduct
+# Code of Conduct
 
 Our code of conduct is available here
 
-#Contributing
+# Contributing
 
 See our contributing guidelines here
 

@@ -31,6 +31,7 @@ module.exports = class TPXapi {
             (async () => {
                 await this.connect();
                 await this.onReady();
+                this.checkCallStatus();
             })();
         } catch (e) {
             console.error(e);
@@ -70,6 +71,18 @@ module.exports = class TPXapi {
         });
     };
 
+    checkCallStatus() {
+        this.xapi.status.get('Call')
+            .then((data) => {
+                console.log(JSON.stringify(data));
+                this.callID = data[0].id;
+                this.callStatus = 'true';
+                console.log(this.callID);
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }
     //if in a call set callID for possible FECC
     monitorCallStatus() {
         this.xapi.status.on('Call', (data) => {
@@ -223,12 +236,28 @@ module.exports = class TPXapi {
                 this.xapi.command('Call FarEndControl Camera Stop', {CallId: this.callID})
                     .catch(e => console.error(e));
                 break;
+
             default:
                 break;
         }
     }
     presetsRemote(btn){
-        console.log("Presets are coming I promise.")
+        let buttonVal = [
+            {btn:'Top Middle', preset:1},
+            {btn:'Bottom Middle', preset:2},
+            {btn:'Top FarRight', preset:3},
+            {btn:'Bottom FarRight', preset: 4},
+            {btn:'Top Side', preset: 5},
+            {btn:'Bottom Side', preset: 6},
+        ];
+
+
+        this.xapi.command('Call FarEndControl RoomPreset Activate', {CallId: this.callID, PresetId:3})
+            .then(response => console.log("This is the response",response))
+            .catch(e => console.error(e));
+
+        console.log("Presets are coming I promise.");
+
     }
     //Setup functions and Events to monitor from endpoint
     onReady() {
