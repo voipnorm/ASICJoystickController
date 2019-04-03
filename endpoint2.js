@@ -74,10 +74,15 @@ module.exports = class TPXapi {
     checkCallStatus() {
         this.xapi.status.get('Call')
             .then((data) => {
-                console.log(JSON.stringify(data));
-                this.callID = data[0].id;
-                this.callStatus = 'true';
-                console.log(this.callID);
+                if(!data){
+                    this.callStatus = 'false';
+                    return;
+                }else{
+                    this.callID = data[0].id;
+                    this.callStatus = 'true';
+                    console.log(this.callID);
+                }
+
             })
             .catch(e => {
                 console.log(e);
@@ -229,6 +234,7 @@ module.exports = class TPXapi {
                     return this.xapi.command('Call FarEndControl Camera Move', {CallId: this.callID, Value: 'ZoomOut'})
                         .catch(e => console.error(e));
                 } else {
+                    console.log("Preset buttons pressed "+JSON.stringify(btn));
                     this.presetsRemote(btn);
                 }
                 break;
@@ -243,20 +249,26 @@ module.exports = class TPXapi {
     }
     presetsRemote(btn){
         let buttonVal = [
-            {btn:'Top Middle', preset:1},
-            {btn:'Bottom Middle', preset:2},
-            {btn:'Top FarRight', preset:3},
-            {btn:'Bottom FarRight', preset: 4},
-            {btn:'Top Side', preset: 5},
-            {btn:'Bottom Side', preset: 6},
+            {device:'Top Middle', preset:1},
+            {device:'Bottom Middle', preset:2},
+            {device:'Top FarRight', preset:3},
+            {device:'Bottom FarRight', preset: 4},
+            {device:'Top Side', preset: 5},
+            {device:'Bottom Side', preset: 6},
         ];
+        for (var i = 0; i < buttonVal.length; i++) {
+            if (buttonVal[i].device === btn.device) {
+                this.xapi.command('Call FarEndControl RoomPreset Activate', {CallId: this.callID, PresetId: buttonVal[i].preset})
+                    .then(response => console.log("This is the response",response))
+                    .catch(e => console.error(e));
+
+                console.log("Match preset "+buttonVal[i].preset);
+
+            }
+
+        }
 
 
-        this.xapi.command('Call FarEndControl RoomPreset Activate', {CallId: this.callID, PresetId:3})
-            .then(response => console.log("This is the response",response))
-            .catch(e => console.error(e));
-
-        console.log("Presets are coming I promise.");
 
     }
     //Setup functions and Events to monitor from endpoint
