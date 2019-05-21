@@ -45,6 +45,10 @@ https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/#a
 * Installing and compiling from source Node-HID on a Raspberry PI:
 https://github.com/node-hid/node-hid#compiling-from-source
 
+If file not found errors occur during the build process for node-hid install the following:
+
+    apt-get install libudev-dev
+
 * Installing PM2 for continued monitoring and restarting application after a error:
 http://pm2.keymetrics.io/
 

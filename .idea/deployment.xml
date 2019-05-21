@@ -5,7 +5,7 @@
       <paths name="PI">
         <serverdata>
           <mappings>
-            <mapping deploy="/Documents/Projects/joystick" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/node_modules" />

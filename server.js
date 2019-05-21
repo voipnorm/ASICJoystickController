@@ -1,13 +1,13 @@
 
 require('dotenv').config();
 const gamePad = require('./gamePad2');
-const TPXapi = require('./endpoint2');
+const TPXapi = require('./endpoint3');
 const UsbDetection = require('./usb');
 
 var endpoint = {
     username: process.env.TPADMIN,
     password: process.env.TPADMINPWD,
-    ipAddress: "10.27.42.120",
+    ipAddress: process.env.IPADDRESS,
 }
 
 var usb = new UsbDetection();
