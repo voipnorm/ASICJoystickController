@@ -26,7 +26,7 @@ module.exports = class UsbDetection extends EventEmitter {
             };
             console.log('find', device);
             if(device.length == 0){
-                console.log("Device not found. Please plug it in.....")
+                console.log("Device not found. Please plug it in and restart the app if required.")
             }else{
                 return this.emit('status', {state: 'online'});
             }

@@ -43,9 +43,10 @@ module.exports = class GameControls extends EventEmitter {
     poll(){
         console.log("Starting Polling data");
         this.device.on("data", (data) => {
+            //console.log(data);
             let dataArr = Array.prototype.slice.call(new Uint8Array(data, 0, 8));
             //build new array with data
-            //console.log(dataArr);
+            console.log(dataArr);
             const x = dataArr[0];
             const y = dataArr[1];
             const button = dataArr[5];
